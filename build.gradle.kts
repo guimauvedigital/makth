@@ -1,10 +1,14 @@
 plugins {
-    kotlin("multiplatform") version "2.0.20"
+    kotlin("multiplatform") version "2.1.10"
     id("org.jetbrains.kotlinx.kover") version "0.8.3"
-    id("com.google.devtools.ksp") version "2.0.20-1.0.24"
-    id("com.vanniktech.maven.publish") version "0.28.0"
+    id("org.jetbrains.dokka") version "2.0.0"
+    id("com.google.devtools.ksp") version "2.1.10-1.0.30"
+    id("com.vanniktech.maven.publish") version "0.30.0"
     id("dev.petuska.npm.publish") version "3.4.1"
+    id("me.nathanfallet.kotlinjsfix") version "1.0.1"
 }
+
+//kotlinjsfix { flattenCjsExports = true }
 
 group = "dev.makth"
 version = "1.3.1"
@@ -19,7 +23,7 @@ mavenPublishing {
     pom {
         name.set("makth")
         description.set("A Kotlin library for algebra")
-        url.set("https://github.com/nathanfallet/makth")
+        url.set("https://github.com/guimauvedigital/makth")
 
         licenses {
             license {
@@ -36,7 +40,7 @@ mavenPublishing {
             }
         }
         scm {
-            url.set("https://github.com/nathanfallet/makth.git")
+            url.set("https://github.com/guimauvedigital/makth.git")
         }
     }
 }
@@ -76,10 +80,11 @@ kotlin {
         }
     }
     js {
+        useEsModules()
+        generateTypeScriptDefinitions()
         binaries.library()
         nodejs()
         browser()
-        //generateTypeScriptDefinitions() // Not supported for now because of collections etc...
     }
 
     applyDefaultHierarchyTemplate()
@@ -91,7 +96,7 @@ kotlin {
         }
         val commonMain by getting {
             dependencies {
-                api("dev.kaccelero:core:0.3.0")
+                api("dev.kaccelero:core:0.5.1")
             }
         }
         val commonTest by getting {
@@ -107,6 +112,13 @@ npmPublish {
     registries {
         register("npmjs") {
             uri.set("https://registry.npmjs.org")
+        }
+    }
+    packages {
+        named("js") {
+            dependencies {
+                normal("@kaccelero/core", "0.5.1")
+            }
         }
     }
 }

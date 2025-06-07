@@ -35,7 +35,6 @@ data class Context(
      * @param actions Actions to execute
      * @return New context after execution
      */
-    @JsName("executeActions")
     @Throws(ExecutionException::class)
     fun execute(actions: List<Action>): Context {
         var context = this
