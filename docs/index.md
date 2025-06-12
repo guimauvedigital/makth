@@ -18,3 +18,7 @@
 - [Set action](actions/action_set.md)
 - [While action](actions/action_while.md)
 - [Algorithm lexer](actions/lexer.md)
+
+## API Reference
+
+- [Dokka documentation](api/index.html)
