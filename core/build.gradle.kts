@@ -87,7 +87,7 @@ kotlin {
         }
         val commonMain by getting {
             dependencies {
-                api("dev.kaccelero:core:0.5.1")
+                api(libs.kaccelero.core)
             }
         }
         val commonTest by getting {
@@ -108,7 +108,7 @@ npmPublish {
     packages {
         named("js") {
             dependencies {
-                normal("@kaccelero/core", "0.5.1")
+                normal("@kaccelero/core", "0.6.0")
             }
         }
     }
