@@ -48,3 +48,6 @@ bin/
 
 ### JS ###
 yarn.lock
+
+### Docs ###
+docs/_site
