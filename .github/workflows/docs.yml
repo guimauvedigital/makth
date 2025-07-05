@@ -42,13 +42,11 @@ jobs:
           base_url: https://makth.dev
           output_path: build/docs/sitemap.xml
           input_dir: build/docs
-      - name: Install Ruby dependencies
-        run: cd build/docs && bundle install
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: build/docs
-          destination: build/docs/_site
+        run: |
+          cd build/docs
+          bundle install
+          bundle exec jekyll build --source . --destination _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
