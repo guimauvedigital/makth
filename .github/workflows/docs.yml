@@ -43,6 +43,8 @@ jobs:
           output_path: build/docs/sitemap.xml
           input_dir: build/docs
       - name: Build with Jekyll
+        env:
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd build/docs
           bundle install
