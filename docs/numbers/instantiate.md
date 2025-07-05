@@ -1,3 +1,9 @@
+---
+title: Instantiate numbers
+parent: Numbers
+nav_order: 11
+---
+
 # Instantiate numbers
 
 ```kotlin

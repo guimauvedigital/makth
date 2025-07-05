@@ -1,3 +1,9 @@
+---
+title: Set action
+parent: Actions
+nav_order: 23
+---
+
 # Set action
 
 ## Kotlin syntax

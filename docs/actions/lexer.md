@@ -1,3 +1,9 @@
+---
+title: Algorithm Lexer
+parent: Actions
+nav_order: 25
+---
+
 # Algorithm Lexer
 
 ## Basic Usage
@@ -22,7 +28,7 @@ val result = Context().execute(actions)
 You can define a custom action by implementing the `Action` interface:
 
 ```kotlin
-data class CustomAction(val value: Value): Action {
+data class CustomAction(val value: Value) : Action {
 
     companion object {
 
@@ -38,10 +44,11 @@ data class CustomAction(val value: Value): Action {
         return context
     }
 
-    override val algorithmString: String get() {
-        return "custom(" + value.algorithmString + ")"
-    }
-        
+    override val algorithmString: String
+        get() {
+            return "custom(" + value.algorithmString + ")"
+        }
+
 }
 ```
 

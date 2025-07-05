@@ -1,3 +1,9 @@
+---
+title: Operations
+parent: Numbers
+nav_order: 12
+---
+
 # Operations
 
 With `a` and `b` being numbers:
